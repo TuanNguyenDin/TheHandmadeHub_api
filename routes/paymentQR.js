@@ -36,7 +36,8 @@ router.post("/payment",async (req,res)=>{
 
   const newOrder = new Order(req.body);
   mailOptions.html = mailOptions.html.replace('{address}', req.body.address);
-  mailOptions.html = mailOptions.html.replace('{phone}', req.body.phone);
+  mailOptions.html = mailOptions.html.replace('{phone}', req.body.contact);
+  mailOptions.to = req.body.email;
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
           console.log('Error sending email:', error);
