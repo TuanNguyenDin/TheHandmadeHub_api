@@ -6,8 +6,8 @@
       }
     ],
     "routes":[{
-        "src":"/",
-        "dest":"index.js"
+        "src":"/(.*)",
+        "dest":"/index.js"
     }],
     "env": {
         "MONGO_URL":"mongodb+srv://TuanNguyen:TuanNguyen@cluster0.2chua0q.mongodb.net/THE_HANDMADE_HUB",
