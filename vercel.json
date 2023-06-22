@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "*",
+        "use": "@vercel/node"
+      }
+    ],
+    "env": {
+        "MONGO_URL":"mongodb+srv://TuanNguyen:TuanNguyen@cluster0.2chua0q.mongodb.net/THE_HANDMADE_HUB",
+        "PASS_SEC":"SECRESTKEY_PASS",
+        "JWT_SEC":"SECRESTKEY_JWT"
+    }
+  }
+  
