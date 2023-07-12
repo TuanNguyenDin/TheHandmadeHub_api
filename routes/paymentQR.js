@@ -16,7 +16,7 @@ const mailOptions = {
   from: 'DinhTuann987161@gmail.com',
   to: 'dinhtuann161@gmail.com',
   subject: 'Xác nhận giao dịch',
-  html:'<h4>cảm ơn bạn đã sử dụng dịch vụ của chúng tôi</h4><p>Vui long kiểm tra lại những thông tin sau:</p> <p>Địa chỉ giao dịch: {address}</p><p>thông tin liên lạc người nhận: {phone}</p>',
+  html:'<h4>cảm ơn bạn đã sử dụng dịch vụ của chúng tôi</h4><p>Vui long kiểm tra lại những thông tin sau:</p> <p>Sản phẩm: {productName}</p></p> <p>Địa chỉ giao dịch: {address}</p><p>thông tin liên lạc người nhận: {phone}</p>',
 };
 
 router.post("/paymentQR",(req,res)=>{
@@ -39,6 +39,7 @@ router.post("/payment",async (req,res)=>{
 
   mailOptions.html = mailOptions.html.replace('{address}', req.body.address);
   mailOptions.html = mailOptions.html.replace('{phone}', req.body.contact);
+  mailOptions.html = mailOptions.html.replace('{productName}', req.body.product.title);
   mailOptions.to = req.body.email;
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
